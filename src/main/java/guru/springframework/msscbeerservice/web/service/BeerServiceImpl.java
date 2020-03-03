@@ -26,7 +26,7 @@ public class BeerServiceImpl implements BeerService {
 	private final BeerMapper beerMapper;
 
 
-    @Cacheable(cacheNames = "beerCache",  key = "#beerId" ,condition = "#showInventoryOnHand == false")
+    @Cacheable(cacheNames = "beerCache",  key = "#beerId" ,condition = "#showInventoryOnhand == false")
 	@Override
 	public BeerDto getBeerById(UUID beerId, Boolean showInventoryOnhand) {
 		System.out.println("Invoking beerId: "+showInventoryOnhand);

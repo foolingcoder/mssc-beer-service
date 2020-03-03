@@ -25,14 +25,25 @@ public class BeerServiceImpl implements BeerService {
 	private final BeerRepository beerRepository;
 	private final BeerMapper beerMapper;
 
-	@Cacheable(cacheNames = "beerCache", key = "#beerId", condition = "#showInventoryOnHand == false ")
+
+    @Cacheable(cacheNames = "beerCache",  key = "#beerId" ,condition = "#showInventoryOnHand == false")
 	@Override
 	public BeerDto getBeerById(UUID beerId, Boolean showInventoryOnhand) {
+		System.out.println("Invoking beerId: "+showInventoryOnhand);
+		
+		Beer beer = beerRepository.findById(beerId).orElseThrow(NotFoundException::new);
+		
 		if(showInventoryOnhand) {
-		   return beerMapper.beerToBeerDtoWithInventory(beerRepository.findById(beerId).orElseThrow(NotFoundException::new));
+		   return beerMapper.beerToBeerDtoWithInventory(beer);
 		}else {
-		  return beerMapper.beerToBeerDto(beerRepository.findById(beerId).orElseThrow(NotFoundException::new));
+		  return beerMapper.beerToBeerDto(beer);
 		}
+	}
+	
+	@Cacheable(cacheNames = "beerUpcCache")
+	@Override
+	public BeerDto getByUpc(String upc) {
+      return beerMapper.beerToBeerDto(beerRepository.findByUpc(upc).orElseThrow(NotFoundException::new));
 	}
 
 	@Override
@@ -52,10 +63,10 @@ public class BeerServiceImpl implements BeerService {
 		return beerMapper.beerToBeerDto(beer);
 	}
 
-	@Cacheable(cacheNames = "beerListCache", condition = "#showInventoryOnhand == false ")
+	@Cacheable(cacheNames = "beerListCache", condition = "#showInventoryOnhand == false")
 	@Override
 	public BeerPagedList listBeers(String beerName, BeerStyleEnum beerStyle, PageRequest pageRequest, Boolean showInventoryOnhand) {
-
+		System.out.println("listBeers: "+showInventoryOnhand);
 		Page<Beer> beerPage;
 
 		if (!StringUtils.isEmpty(beerName) && !StringUtils.isEmpty(beerStyle)) {
@@ -95,5 +106,7 @@ public class BeerServiceImpl implements BeerService {
 
 		return beerPagedList;
 	}
+
+
 
 }

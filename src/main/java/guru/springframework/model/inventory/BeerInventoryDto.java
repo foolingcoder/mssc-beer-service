@@ -1,4 +1,4 @@
-package guru.springframework.msscbeerservice.web.service.Inventory.model;
+package guru.springframework.model.inventory;
 
 import lombok.*;
 

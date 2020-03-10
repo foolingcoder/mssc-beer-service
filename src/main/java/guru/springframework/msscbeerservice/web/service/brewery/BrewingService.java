@@ -6,10 +6,10 @@ import org.springframework.jms.core.JmsTemplate;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
+import guru.springframework.model.events.BrewBeerEvent;
 import guru.springframework.msscbeerservice.config.JmsConfig;
 import guru.springframework.msscbeerservice.web.domain.Beer;
 import guru.springframework.msscbeerservice.web.mapper.BeerMapper;
-import guru.springframework.msscbeerservice.web.model.events.BrewBeerEvent;
 import guru.springframework.msscbeerservice.web.repository.BeerRepository;
 import guru.springframework.msscbeerservice.web.service.Inventory.BeerInventoryService;
 import lombok.RequiredArgsConstructor;

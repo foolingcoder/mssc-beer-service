@@ -12,7 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
-import guru.springframework.msscbeerservice.web.service.Inventory.model.BeerInventoryDto;
+import guru.springframework.model.inventory.BeerInventoryDto;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j

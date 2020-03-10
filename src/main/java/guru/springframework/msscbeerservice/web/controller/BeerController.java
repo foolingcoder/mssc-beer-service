@@ -16,9 +16,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import guru.springframework.msscbeerservice.web.model.BeerDto;
-import guru.springframework.msscbeerservice.web.model.BeerPagedList;
-import guru.springframework.msscbeerservice.web.model.BeerStyleEnum;
+import guru.springframework.model.BeerDto;
+import guru.springframework.model.BeerPagedList;
+import guru.springframework.model.BeerStyleEnum;
 import guru.springframework.msscbeerservice.web.service.BeerService;
 
 @RestController

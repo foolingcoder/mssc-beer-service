@@ -23,8 +23,8 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import guru.springframework.msscbeerservice.web.model.BeerDto;
-import guru.springframework.msscbeerservice.web.model.BeerStyleEnum;
+import guru.springframework.model.BeerDto;
+import guru.springframework.model.BeerStyleEnum;
 import guru.springframework.msscbeerservice.web.service.BeerService;
 
 @WebMvcTest(controllers = BeerController.class)

@@ -6,11 +6,11 @@ import org.springframework.jms.annotation.JmsListener;
 import org.springframework.jms.core.JmsTemplate;
 import org.springframework.stereotype.Service;
 
+import guru.springframework.model.BeerDto;
+import guru.springframework.model.events.BrewBeerEvent;
+import guru.springframework.model.events.NewInventoryEvent;
 import guru.springframework.msscbeerservice.config.JmsConfig;
 import guru.springframework.msscbeerservice.web.domain.Beer;
-import guru.springframework.msscbeerservice.web.model.BeerDto;
-import guru.springframework.msscbeerservice.web.model.events.BrewBeerEvent;
-import guru.springframework.msscbeerservice.web.model.events.NewInventoryEvent;
 import guru.springframework.msscbeerservice.web.repository.BeerRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

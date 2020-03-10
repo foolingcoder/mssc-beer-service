@@ -8,8 +8,8 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import guru.springframework.model.BeerStyleEnum;
 import guru.springframework.msscbeerservice.web.domain.Beer;
-import guru.springframework.msscbeerservice.web.model.BeerStyleEnum;
 
 public interface BeerRepository extends JpaRepository<Beer, UUID> {
 	

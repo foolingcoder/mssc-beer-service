@@ -1,5 +1,7 @@
 package guru.springframework.msscbeerservice.web.service.brewery;
 
+import javax.transaction.Transactional;
+
 import org.springframework.jms.annotation.JmsListener;
 import org.springframework.jms.core.JmsTemplate;
 import org.springframework.stereotype.Service;
@@ -22,6 +24,7 @@ public class BrewBeerListener {
 
 	private final JmsTemplate jmsTemplate;
 
+	@Transactional
 	@JmsListener(destination = JmsConfig.BREWING_REQUEST_QUEUE)
 	public void listen(BrewBeerEvent brewBeerEvent) {
 		BeerDto beerDto = brewBeerEvent.getBeerDto();

@@ -1,4 +1,4 @@
-package guru.springframework.msscbeerservice.web.controller;
+package guru.sfg.msscbeerservice.web.controller;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.mockito.ArgumentMatchers.any;
@@ -23,9 +23,9 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import guru.springframework.model.BeerDto;
-import guru.springframework.model.BeerStyleEnum;
-import guru.springframework.msscbeerservice.web.service.BeerService;
+import guru.sfg.brewery.model.BeerDto;
+import guru.sfg.brewery.model.BeerStyleEnum;
+import guru.sfg.msscbeerservice.web.service.BeerService;
 
 @WebMvcTest(controllers = BeerController.class)
 public class BeerControllerTest {

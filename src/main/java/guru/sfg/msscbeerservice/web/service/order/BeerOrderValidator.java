@@ -4,7 +4,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 import org.springframework.stereotype.Component;
 
-import guru.sfg.brewery.model.events.BeerOrderDto;
+import guru.sfg.brewery.model.BeerOrderDto;
 import guru.sfg.msscbeerservice.web.repository.BeerRepository;
 import lombok.RequiredArgsConstructor;
 

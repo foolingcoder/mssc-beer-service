@@ -1,4 +1,4 @@
-package guru.sfg.brewery.model.inventory;
+package guru.sfg.brewery.model;
 
 import java.time.OffsetDateTime;
 import java.util.UUID;

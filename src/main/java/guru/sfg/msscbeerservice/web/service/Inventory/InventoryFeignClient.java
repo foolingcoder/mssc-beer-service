@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import guru.sfg.brewery.model.BeerInventoryDto;
 			
 //@FeignClient(value = "inventory-service", url = "http://localhost:8082")
-@FeignClient(name = "inventory-service")
+@FeignClient(name = "inventory-service" ,fallback = InventoryServiceFeignClientFailover.class)
 public interface InventoryFeignClient {
 
 	@RequestMapping(method= RequestMethod.GET, value=BeerInventoryServiceRestTemplateImpl.INVENTORY_PATH_V1)

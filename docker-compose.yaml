@@ -1,0 +1,34 @@
+version: "3"
+
+services:         
+
+
+    beer-service:
+        image: priteela/beer-service
+        networks:
+            - sfg-brewery-network         
+        ports: 
+            - 8080:8080
+        depends_on:
+            - beer-service-db  
+        deploy:
+            replicas: 1   
+            
+                        
+    beer-service-db:
+        image: mysql:8.0
+        networks:
+            - sfg-brewery-network
+        environment:
+            - MYSQL_ROOT_PASSWORD=root
+            - MYSQL_USER=beer_service
+            - MYSQL_PASSWORD=password
+            - MYSQL_DATABASE=beerservice
+        ports: 
+             - "3307:3306"
+        command: --default-authentication-plugin=mysql_native_password
+        volumes:
+            - c:/storage/docker/mysql/beer-service-db:/var/lib/mysql
+            
+networks:
+    sfg-brewery-network: 

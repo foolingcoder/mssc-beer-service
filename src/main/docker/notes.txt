@@ -1,4 +1,4 @@
-docker container run --name beerservicedatabase -e MYSQL_ROOT_PASSWORD=root  -e MYSQL_DATABASE=beerservice   -e MYSQL_USER=beer_service   -e MYSQL_PASSWORD=password -p 3307:3306 -v c:/storage/docker/mysql/beerservicedatabase:/var/lib/mysql --network mssc-beer-service_sfg-brewery-network mysql:8.0
+docker container run --name beer-service-db -e MYSQL_ROOT_PASSWORD=root  -e MYSQL_DATABASE=beerservice   -e MYSQL_USER=beer_service   -e MYSQL_PASSWORD=password -p 3307:3306 -v c:/storage/docker/mysql/beer-service-db:/var/lib/mysql --network mssc-beer-service_sfg-brewery-network mysql:8.0
 
 
 docker container run --name beer-service -p 8080:8080 --network mssc-beer-service_sfg-brewery-network priteela/beer-service
@@ -10,6 +10,6 @@ apt-get install iputils-ping
 apt-get install default-mysql-client
 
 
-mysql -u root -h beerservicedatabase -p beerservice
+mysql -u root -h beer-service-db -p beerservice
 
 alter user 'root' identified with mysql_native_password by 'root'

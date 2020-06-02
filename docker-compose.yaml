@@ -25,7 +25,17 @@ services:
             - inventory-service-db  
         deploy:
             replicas: 1   
-
+            
+    order-service:
+        image: priteela/order-service
+        networks:
+            - sfg-brewery-network         
+        ports: 
+            - 8081:8081
+        depends_on:
+            - order-service-db  
+        deploy:
+            replicas: 1   
 
     inventory-service-db:
         image: mysql:8.0
@@ -57,13 +67,29 @@ services:
         volumes:
             - c:/storage/docker/mysql/beer-service-db:/var/lib/mysql
 
-    jms:
+
+    order-service-db:
+        image: mysql:8.0
+        networks:
+            - sfg-brewery-network
+        environment:
+            - MYSQL_ROOT_PASSWORD=root
+            - MYSQL_USER=beer_order_service
+            - MYSQL_PASSWORD=password
+            - MYSQL_DATABASE=beerorderservice
+        ports: 
+             - "3309:3306"
+        command: mysqld --default-authentication-plugin=mysql_native_password
+        volumes:
+            - c:/storage/docker/mysql/order-service-db:/var/lib/mysql
+            
+    artemis-jms-service:
         image: vromero/activemq-artemis
         networks:
             - sfg-brewery-network
         ports: 
-             - "8121:8121"
-             - "61617:61617"
+             - "61616:61616"
+             - "8161:8161"
            
 networks:
     sfg-brewery-network: 
